@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0b1226;
+  --foreground: #eaf0ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jakarta), Arial, Helvetica, sans-serif;
+}
+
+@keyframes ncMarquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.nc-marquee-track {
+  animation: ncMarquee 22s linear infinite;
+}
+
+@keyframes ncFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.nc-fade-up {
+  animation: ncFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* --- Shared site header / footer (extracted from the original export) --- */
+
+/* Layered so Tailwind utility classes (e.g. `text-white` on a CTA link)
+   still win over this default link color — unlayered rules always beat
+   `@layer utilities` regardless of specificity. */
+@layer base {
+  a {
+    color: #9dbbff;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #50dfae;
+  }
+}
+
+.nc-header .nc-navlink {
+  color: #eaf0ff !important;
+}
+.nc-header .nc-navlink:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+}
+.nc-header-btn:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes ncHeaderShadow {
+  from {
+    box-shadow: 0 0 0 rgba(22, 36, 74, 0);
+  }
+  to {
+    box-shadow: 0 10px 30px -18px rgba(22, 36, 74, 0.45);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .nc-header {
+    animation: ncHeaderShadow linear both;
+    animation-timeline: scroll();
+    animation-range: 0 140px;
+  }
+}
+
+.nc-footer-grid a:hover {
+  color: #50dfae !important;
+}
+.nc-footer-social:hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+  transform: translateY(-2px);
+}
+
+#nc-burger {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .nc-header {
+    padding: 16px 28px !important;
+  }
+  .nc-nav {
+    gap: 16px !important;
+  }
+  .nc-navlink {
+    font-size: 13px !important;
+  }
+  .nc-header-btn span.nc-btn-label {
+    display: none;
+  }
+  .nc-footer-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .nc-nav {
+    display: none !important;
+  }
+  .nc-header .nc-header-btn {
+    display: none !important;
+  }
+  .nc-header {
+    padding: 12px 20px !important;
+  }
+  #nc-burger {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .nc-footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
