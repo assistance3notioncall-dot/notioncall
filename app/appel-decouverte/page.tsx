@@ -2,6 +2,7 @@ import Header from "../_components/Header";
 import Footer from "../_components/Footer";
 import Reveal from "../_components/Reveal";
 import DiscoveryForm from "./DiscoveryForm";
+import VideoPlayer from "./VideoPlayer";
 
 export default function Page() {
   return (
@@ -22,14 +23,7 @@ export default function Page() {
 
       <section className="px-6 pb-14 md:px-16">
         <div className="mx-auto max-w-4xl">
-          <div className="flex aspect-video items-center justify-center rounded-3xl border border-white/10 bg-gradient-to-br from-[#0B1226] via-[#123a2e] to-[#0B1226]">
-            <div className="flex flex-col items-center gap-3 text-white/80">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#50DFAE] text-2xl text-[#0B1226]">
-                ▶
-              </div>
-              <p className="text-sm">Aperçu — vidéo à intégrer</p>
-            </div>
-          </div>
+          <VideoPlayer />
         </div>
       </section>
 

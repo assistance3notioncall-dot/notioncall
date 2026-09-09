@@ -162,7 +162,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="mt-20 overflow-hidden border-y border-white/10 py-8">
+      <section className="mt-20 overflow-hidden border-b border-white/10 border-t-2 border-t-white py-8">
         <div className="nc-marquee-track flex w-max gap-16">
           {[...STATS, ...STATS].map((s, i) => (
             <div key={i} className="flex items-center gap-3 whitespace-nowrap">
