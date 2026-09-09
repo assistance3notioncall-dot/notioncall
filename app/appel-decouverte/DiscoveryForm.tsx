@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, type ChangeEvent, type InvalidEvent } from "react";
 
-const WHATSAPP_NUMBER = "212724128632";
+const WHATSAPP_NUMBER = "212707290640";
 
 const STEPS = [
   {
