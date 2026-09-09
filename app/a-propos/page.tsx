@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../_components/Header";
 import Footer from "../_components/Footer";
@@ -44,11 +45,17 @@ const STATS = [
   { icon: <IconClock />, value: "1h", label: "Entre la prise et le contrôle" },
 ];
 
+export const metadata: Metadata = {
+  title: "À propos",
+  alternates: { canonical: "/a-propos" },
+};
+
 export default function Page() {
   return (
     <>
       <Header />
 
+      <main>
       <section className="px-6 py-24 md:px-16 md:py-28">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-bold tracking-widest text-[#50DFAE]">À PROPOS DE NOTIONCALL</p>
@@ -76,7 +83,7 @@ export default function Page() {
             propriétaires qui ont eux-mêmes demandé à être appelés, avec la preuve.
             Avant la loi d&rsquo;août, pas à cause d&rsquo;elle.
           </p>
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-slate-400">
             — Oussama Aouameur, fondateur de NotionCall
           </p>
           <div className="pt-2">
@@ -122,6 +129,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
     </>

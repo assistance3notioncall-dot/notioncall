@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../_components/Header";
 import Footer from "../_components/Footer";
@@ -47,11 +48,17 @@ const SERVICES = [
   },
 ];
 
+export const metadata: Metadata = {
+  title: "Notre service",
+  alternates: { canonical: "/notre-service" },
+};
+
 export default function Page() {
   return (
     <>
       <Header />
 
+      <main>
       <section className="px-6 py-24 text-center md:px-16 md:py-28">
         <div className="mx-auto max-w-3xl">
           <p className="text-sm font-bold tracking-widest text-[#50DFAE]">NOTRE SERVICE</p>
@@ -74,7 +81,7 @@ export default function Page() {
                 <div>
                   <div className="flex items-center gap-3">
                     <IconBadge>{s.icon}</IconBadge>
-                    <span className="text-sm font-bold text-slate-500">{s.n}</span>
+                    <span className="text-sm font-bold text-slate-400">{s.n}</span>
                   </div>
                   <h2 className="mt-5 text-2xl font-extrabold text-[#EAF0FF]">{s.title}</h2>
                   <p className="mt-3 text-sm leading-relaxed text-slate-400">{s.text}</p>
@@ -115,6 +122,7 @@ export default function Page() {
           </Link>
         </div>
       </section>
+      </main>
 
       <Footer />
     </>

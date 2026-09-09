@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "./_components/Header";
@@ -46,11 +47,16 @@ const STATS = [
   { icon: <IconCalendarCheck className="h-5 w-5" />, value: "+60", label: "Rendez-vous livrés par jour" },
 ];
 
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function Page() {
   return (
     <>
       <Header />
 
+      <main>
       <section className="relative overflow-hidden">
         <Image
           src="/images/index-646b53bd.webp"
@@ -185,7 +191,7 @@ export default function Page() {
             <p className="mt-2 text-slate-400">
               Si vous le craignez pour vos commerciaux terrain, écrivez-moi directement.
             </p>
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-slate-400">
               — Oussama Aouameur, fondateur de NotionCall
             </p>
           </div>
@@ -197,6 +203,7 @@ export default function Page() {
           </a>
         </div>
       </section>
+      </main>
 
       <Footer />
     </>

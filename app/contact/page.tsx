@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../_components/Header";
 import Footer from "../_components/Footer";
@@ -23,11 +24,17 @@ const INFO = [
   },
 ];
 
+export const metadata: Metadata = {
+  title: "Contact",
+  alternates: { canonical: "/contact" },
+};
+
 export default function Page() {
   return (
     <>
       <Header />
 
+      <main>
       <section className="px-6 py-24 text-center md:px-16 md:py-28">
         <div className="mx-auto max-w-3xl">
           <p className="text-sm font-bold tracking-widest text-[#50DFAE]">NOUS CONTACTER</p>
@@ -92,6 +99,7 @@ export default function Page() {
           </Link>
         </div>
       </section>
+      </main>
 
       <Footer />
     </>

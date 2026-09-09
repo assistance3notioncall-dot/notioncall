@@ -68,20 +68,8 @@ body {
   transform: translateY(-2px);
 }
 
-@keyframes ncHeaderShadow {
-  from {
-    box-shadow: 0 0 0 rgba(22, 36, 74, 0);
-  }
-  to {
-    box-shadow: 0 10px 30px -18px rgba(22, 36, 74, 0.45);
-  }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .nc-header {
-    animation: ncHeaderShadow linear both;
-    animation-timeline: scroll();
-    animation-range: 0 140px;
-  }
+.nc-header {
+  box-shadow: 0 10px 30px -18px rgba(22, 36, 74, 0.45);
 }
 
 .nc-footer-grid a:hover {

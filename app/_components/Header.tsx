@@ -27,8 +27,11 @@ export default function Header() {
     <header
       className="nc-header"
       style={{
-        position: "sticky",
+        position: "fixed",
         top: 0,
+        left: 0,
+        right: 0,
+        width: "100%",
         zIndex: 50,
         display: "flex",
         alignItems: "center",
@@ -114,6 +117,10 @@ export default function Header() {
         <span className="nc-btn-label">Nous contacter</span> <span>→</span>
       </Link>
     </header>
+    {/* Matches .nc-header's actual box height at each breakpoint (see
+        globals.css) via pure CSS, so there's no measured-after-mount
+        layout shift like a JS-computed spacer would cause. */}
+    <div className="h-[69px] md:h-[77px] lg:h-[85px]" aria-hidden="true" />
 
     {mounted &&
         createPortal(

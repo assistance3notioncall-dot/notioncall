@@ -234,7 +234,7 @@ export default function DiscoveryForm() {
           {loading ? "Envoi..." : "Envoyer"} <span>→</span>
         </button>
 
-        <p className="mt-1 text-xs text-slate-500">
+        <p className="mt-1 text-xs text-slate-400">
           Vos informations servent uniquement à préparer notre échange. Voir la{" "}
           <Link href="/mentions-legales#confidentialite" className="underline">
             politique de confidentialité
@@ -298,7 +298,7 @@ export default function DiscoveryForm() {
             <button
               type="button"
               onClick={() => setPopup(null)}
-              className="cursor-pointer text-[13.5px] text-slate-500 transition hover:text-slate-300"
+              className="cursor-pointer text-[13.5px] text-slate-400 transition hover:text-slate-300"
             >
               Fermer
             </button>

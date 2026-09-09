@@ -1,20 +1,27 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../_components/Header";
 import Footer from "../_components/Footer";
 import Reveal from "../_components/Reveal";
+
+export const metadata: Metadata = {
+  title: "Mentions légales",
+  alternates: { canonical: "/mentions-legales" },
+};
 
 export default function Page() {
   return (
     <>
       <Header />
 
+      <main>
       <section className="px-6 py-24 text-center md:px-16 md:py-28">
         <div className="mx-auto max-w-3xl">
           <p className="text-sm font-bold tracking-widest text-[#50DFAE]">INFORMATIONS LÉGALES</p>
           <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-[#9DBBFF] md:text-5xl">
             Mentions légales &amp; confidentialité
           </h1>
-          <p className="mt-6 text-slate-500">Dernière mise à jour : août 2026.</p>
+          <p className="mt-6 text-slate-400">Dernière mise à jour : août 2026.</p>
         </div>
       </section>
 
@@ -123,6 +130,7 @@ export default function Page() {
           </Link>
         </div>
       </section>
+      </main>
 
       <Footer />
     </>

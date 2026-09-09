@@ -1,14 +1,21 @@
+import type { Metadata } from "next";
 import Header from "../_components/Header";
 import Footer from "../_components/Footer";
 import Reveal from "../_components/Reveal";
 import DiscoveryForm from "./DiscoveryForm";
 import VideoPlayer from "./VideoPlayer";
 
+export const metadata: Metadata = {
+  title: "Appel découverte",
+  alternates: { canonical: "/appel-decouverte" },
+};
+
 export default function Page() {
   return (
     <>
       <Header />
 
+      <main>
       <section className="px-6 py-24 text-center md:px-16 md:py-28">
         <div className="mx-auto max-w-3xl">
           <p className="text-sm font-bold tracking-widest text-[#50DFAE]">APPEL DÉCOUVERTE</p>
@@ -42,6 +49,7 @@ export default function Page() {
           <DiscoveryForm />
         </div>
       </section>
+      </main>
 
       <Footer />
     </>
