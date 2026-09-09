@@ -196,7 +196,7 @@ export default function Page() {
             </p>
           </div>
           <a
-            href="mailto:aouameur@gmail.com"
+            href="mailto:aouameur@notioncall.com"
             className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#50DFAE] px-7 py-3 text-sm font-bold text-[#0B1226] transition hover:-translate-y-0.5"
           >
             Écrire au fondateur <span>→</span>

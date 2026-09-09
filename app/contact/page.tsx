@@ -13,14 +13,14 @@ const INFO = [
   {
     icon: <IconPhoneIncoming />,
     label: "TÉLÉPHONE",
-    lines: ["+212 724 128 632", "Lun — Sam, 9h00 à 19h00"],
-    href: "tel:+212724128632",
+    lines: ["+212 707 290 640", "Lun — Sam, 9h00 à 19h00"],
+    href: "tel:+212707290640",
   },
   {
     icon: <IconFileText />,
     label: "EMAIL",
-    lines: ["aouameur@gmail.com", "Réponse sous 24 heures ouvrées"],
-    href: "mailto:aouameur@gmail.com",
+    lines: ["aouameur@notioncall.com", "Réponse sous 24 heures ouvrées"],
+    href: "mailto:aouameur@notioncall.com",
   },
 ];
 

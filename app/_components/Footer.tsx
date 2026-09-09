@@ -148,8 +148,18 @@ export default function Footer() {
             Contact
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10, fontSize: 13.5, color: "rgb(200, 208, 230)" }}>
-            <div>Téléphone : +212 724 128 632</div>
-            <div>Email : aouameur@gmail.com</div>
+            <div>
+              Téléphone :{" "}
+              <a href="tel:+212707290640" style={{ color: "inherit" }}>
+                +212 707 290 640
+              </a>
+            </div>
+            <div>
+              Email :{" "}
+              <a href="mailto:aouameur@notioncall.com" style={{ color: "inherit" }}>
+                aouameur@notioncall.com
+              </a>
+            </div>
             <div>Rue Tarik Bno Ziad, Guéliz, Marrakech</div>
           </div>
           <div style={{ display: "flex", gap: 12, marginTop: 20 }}>

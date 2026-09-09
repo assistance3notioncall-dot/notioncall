@@ -40,7 +40,7 @@ export default function Page() {
             </p>
             <p className="mt-2 text-slate-400">Rue Tarik Bno Ziad, Guéliz, Marrakech — Maroc</p>
             <p className="mt-2 text-slate-400">
-              Téléphone : +212 724 128 632 — Email : aouameur@gmail.com
+              Téléphone : +212 707 290 640 — Email : aouameur@notioncall.com
             </p>
           </div>
 
@@ -99,7 +99,7 @@ export default function Page() {
             <p className="mt-3 text-slate-400">
               Vous disposez d&rsquo;un droit d&rsquo;accès, de rectification et de
               suppression de vos données. Pour exercer ces droits, écrivez-nous à{" "}
-              aouameur@gmail.com.
+              aouameur@notioncall.com.
             </p>
           </div>
 
