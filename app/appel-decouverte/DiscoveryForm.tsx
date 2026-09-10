@@ -1,9 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { useState, type ChangeEvent, type InvalidEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const WHATSAPP_NUMBER = "212707290640";
+
+const DEPARTMENTS: [string, string][] = [
+  ["01", "Ain"], ["02", "Aisne"], ["03", "Allier"], ["04", "Alpes-de-Haute-Provence"], ["05", "Hautes-Alpes"],
+  ["06", "Alpes-Maritimes"], ["07", "Ardèche"], ["08", "Ardennes"], ["09", "Ariège"], ["10", "Aube"],
+  ["11", "Aude"], ["12", "Aveyron"], ["13", "Bouches-du-Rhône"], ["14", "Calvados"], ["15", "Cantal"],
+  ["16", "Charente"], ["17", "Charente-Maritime"], ["18", "Cher"], ["19", "Corrèze"], ["21", "Côte-d'Or"],
+  ["22", "Côtes-d'Armor"], ["23", "Creuse"], ["24", "Dordogne"], ["25", "Doubs"], ["26", "Drôme"],
+  ["27", "Eure"], ["28", "Eure-et-Loir"], ["29", "Finistère"], ["30", "Gard"], ["31", "Haute-Garonne"],
+  ["32", "Gers"], ["33", "Gironde"], ["34", "Hérault"], ["35", "Ille-et-Vilaine"], ["36", "Indre"],
+  ["37", "Indre-et-Loire"], ["38", "Isère"], ["39", "Jura"], ["40", "Landes"], ["41", "Loir-et-Cher"],
+  ["42", "Loire"], ["43", "Haute-Loire"], ["44", "Loire-Atlantique"], ["45", "Loiret"], ["46", "Lot"],
+  ["47", "Lot-et-Garonne"], ["48", "Lozère"], ["49", "Maine-et-Loire"], ["50", "Manche"], ["51", "Marne"],
+  ["52", "Haute-Marne"], ["53", "Mayenne"], ["54", "Meurthe-et-Moselle"], ["55", "Meuse"], ["56", "Morbihan"],
+  ["57", "Moselle"], ["58", "Nièvre"], ["59", "Nord"], ["60", "Oise"], ["61", "Orne"],
+  ["62", "Pas-de-Calais"], ["63", "Puy-de-Dôme"], ["64", "Pyrénées-Atlantiques"], ["65", "Hautes-Pyrénées"], ["66", "Pyrénées-Orientales"],
+  ["67", "Bas-Rhin"], ["68", "Haut-Rhin"], ["69", "Rhône"], ["70", "Haute-Saône"], ["71", "Saône-et-Loire"],
+  ["72", "Sarthe"], ["73", "Savoie"], ["74", "Haute-Savoie"], ["75", "Paris"], ["76", "Seine-Maritime"],
+  ["77", "Seine-et-Marne"], ["78", "Yvelines"], ["79", "Deux-Sèvres"], ["80", "Somme"], ["81", "Tarn"],
+  ["82", "Tarn-et-Garonne"], ["83", "Var"], ["84", "Vaucluse"], ["85", "Vendée"], ["86", "Vienne"],
+  ["87", "Haute-Vienne"], ["88", "Vosges"], ["89", "Yonne"], ["90", "Territoire de Belfort"], ["91", "Essonne"],
+  ["92", "Hauts-de-Seine"], ["93", "Seine-Saint-Denis"], ["94", "Val-de-Marne"], ["95", "Val-d'Oise"],
+];
 
 const STEPS = [
   {
@@ -57,16 +79,105 @@ function OptionRow({
   );
 }
 
-function digitsOnly(value: string, maxLength = 5) {
-  return value.replace(/[^0-9]/g, "").slice(0, maxLength);
+function CheckboxRow({
+  value,
+  checked,
+  onChange,
+}: {
+  value: string;
+  checked: boolean;
+  onChange: () => void;
+}) {
+  return (
+    <label className="group flex cursor-pointer items-center gap-3.5 rounded-2xl border border-white/15 bg-white/5 px-4.5 py-3.5 text-sm font-medium text-slate-300 transition hover:border-[#50DFAE]/60 has-[:checked]:border-[#50DFAE] has-[:checked]:bg-[#50DFAE]/10 has-[:checked]:text-[#EAF0FF]">
+      <input type="checkbox" checked={checked} onChange={onChange} className="sr-only" />
+      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-[6px] border-2 border-slate-500 transition group-hover:border-[#50DFAE]/60 group-has-[:checked]:border-[#50DFAE] group-has-[:checked]:bg-[#50DFAE]">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="opacity-0 transition group-has-[:checked]:opacity-100">
+          <path d="M5 12.5l4.5 4.5L19 7.5" stroke="#0B1226" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </span>
+      {value}
+    </label>
+  );
 }
 
-function handleCpInvalid(e: InvalidEvent<HTMLInputElement>) {
-  e.currentTarget.setCustomValidity("Merci d'écrire 5 chiffres.");
-}
+function MultiSelectField({
+  placeholder,
+  options,
+  values,
+  onChange,
+}: {
+  placeholder: string;
+  options: [string, string][];
+  values: string[];
+  onChange: (values: string[]) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-function clearCpValidity(e: ChangeEvent<HTMLInputElement>) {
-  e.target.setCustomValidity("");
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  function toggle(code: string) {
+    onChange(
+      values.includes(code) ? values.filter((v) => v !== code) : [...values, code]
+    );
+  }
+
+  const selectedLabels = options
+    .filter(([code]) => values.includes(code))
+    .map(([, name]) => name);
+
+  return (
+    <div ref={ref} className="relative w-full">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="flex w-full items-center justify-between gap-2 rounded-2xl border border-white/15 bg-white/5 px-4.5 py-3.5 text-left text-sm outline-none transition focus:border-[#50DFAE]"
+      >
+        <span className={selectedLabels.length ? "text-[#EAF0FF]" : "text-slate-500"}>
+          {selectedLabels.length ? selectedLabels.join(", ") : placeholder}
+        </span>
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          className={`shrink-0 text-slate-400 transition ${open ? "rotate-180" : ""}`}
+        >
+          <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+      {open && (
+        <div className="absolute z-20 mt-2 max-h-64 w-full overflow-y-auto rounded-2xl border border-white/15 bg-[#111a33] p-2 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.6)]">
+          {options.map(([code, name]) => {
+            const checked = values.includes(code);
+            return (
+              <label
+                key={code}
+                className="flex cursor-pointer items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-white/5 has-[:checked]:text-[#EAF0FF]"
+              >
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={() => toggle(code)}
+                  className="h-4 w-4 shrink-0 accent-[#50DFAE]"
+                />
+                {code} — {name}
+              </label>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default function DiscoveryForm() {
@@ -76,8 +187,21 @@ export default function DiscoveryForm() {
     name: string;
     whatsappUrl: string;
   } | null>(null);
-  const [agencePrincipale, setAgencePrincipale] = useState("");
-  const [agenceSecondaire, setAgenceSecondaire] = useState("");
+  const [produits, setProduits] = useState<string[]>([]);
+  const [agencePrincipale, setAgencePrincipale] = useState<string[]>([]);
+  const [agencesSecondaires, setAgencesSecondaires] = useState<string[][]>([[]]);
+
+  function addAgenceSecondaire() {
+    setAgencesSecondaires((prev) => [...prev, []]);
+  }
+
+  function updateAgenceSecondaire(index: number, values: string[]) {
+    setAgencesSecondaires((prev) => prev.map((v, i) => (i === index ? values : v)));
+  }
+
+  function removeAgenceSecondaire(index: number) {
+    setAgencesSecondaires((prev) => prev.filter((_, i) => i !== index));
+  }
 
   return (
     <>
@@ -88,12 +212,32 @@ export default function DiscoveryForm() {
           setError(null);
           setLoading(true);
 
+          if (produits.length === 0) {
+            setError("Sélectionnez au moins une option pour « Ce que vous cherchez ».");
+            setLoading(false);
+            return;
+          }
+          if (agencePrincipale.length === 0) {
+            setError("Sélectionnez au moins un département pour l'agence principale.");
+            setLoading(false);
+            return;
+          }
+
           const form = e.currentTarget;
           const formData = new FormData(form);
-          const payload = Object.fromEntries(formData.entries()) as Record<
-            string,
-            string
-          >;
+          const departmentLabels = (codes: string[]) =>
+            DEPARTMENTS.filter(([code]) => codes.includes(code))
+              .map(([code, name]) => `${name} (${code})`)
+              .join(", ");
+          const payload: Record<string, string> = {
+            ...(Object.fromEntries(formData.entries()) as Record<string, string>),
+            produit: produits.join(", "),
+            agence_principale: departmentLabels(agencePrincipale),
+            agence_secondaire: agencesSecondaires
+              .map((values) => departmentLabels(values))
+              .filter(Boolean)
+              .join(" | "),
+          };
 
           try {
             const res = await fetch("/api/discovery", {
@@ -122,8 +266,9 @@ export default function DiscoveryForm() {
 
             setPopup({ name: payload.nom, whatsappUrl });
             form.reset();
-            setAgencePrincipale("");
-            setAgenceSecondaire("");
+            setProduits([]);
+            setAgencePrincipale([]);
+            setAgencesSecondaires([[]]);
           } catch {
             setError(
               "Une erreur est survenue. Réessayez ou écrivez-nous directement."
@@ -156,7 +301,16 @@ export default function DiscoveryForm() {
         </div>
         <div className="flex flex-col gap-2.5">
           {STEPS[0].options.map((opt) => (
-            <OptionRow key={opt} name={STEPS[0].name} value={opt} />
+            <CheckboxRow
+              key={opt}
+              value={opt}
+              checked={produits.includes(opt)}
+              onChange={() =>
+                setProduits((prev) =>
+                  prev.includes(opt) ? prev.filter((p) => p !== opt) : [...prev, opt]
+                )
+              }
+            />
           ))}
         </div>
 
@@ -164,37 +318,54 @@ export default function DiscoveryForm() {
           <StepBadge n={2} />
           <span className="text-sm font-bold text-[#EAF0FF]">Vos agences</span>
         </div>
-        <input
-          type="text"
-          name="agence_principale"
-          inputMode="numeric"
-          pattern="\d{5}"
-          title="5 chiffres"
-          placeholder="Code postal de l'agence principale"
-          required
-          value={agencePrincipale}
-          onChange={(e) => {
-            setAgencePrincipale(digitsOnly(e.target.value));
-            clearCpValidity(e);
-          }}
-          onInvalid={handleCpInvalid}
-          className="w-full rounded-2xl border border-white/15 bg-white/5 px-4.5 py-3.5 text-sm text-[#EAF0FF] placeholder:text-slate-500 outline-none focus:border-[#50DFAE]"
+        <MultiSelectField
+          placeholder="Départements de l'agence principale"
+          options={DEPARTMENTS}
+          values={agencePrincipale}
+          onChange={setAgencePrincipale}
         />
-        <input
-          type="text"
-          name="agence_secondaire"
-          inputMode="numeric"
-          pattern="\d{5}"
-          title="5 chiffres"
-          placeholder="2ᵉ agence — code postal (optionnel)"
-          value={agenceSecondaire}
-          onChange={(e) => {
-            setAgenceSecondaire(digitsOnly(e.target.value));
-            clearCpValidity(e);
-          }}
-          onInvalid={handleCpInvalid}
-          className="w-full rounded-2xl border border-white/15 bg-white/5 px-4.5 py-3.5 text-sm text-[#EAF0FF]/70 placeholder:text-slate-500 outline-none focus:border-[#50DFAE]"
-        />
+        <div className="flex flex-col gap-2.5">
+          {agencesSecondaires.map((values, i) => {
+            const isLast = i === agencesSecondaires.length - 1;
+            const canRemove = agencesSecondaires.length > 1;
+            return (
+              <div key={i} className="flex items-center gap-2">
+                <div className="flex-1">
+                  <MultiSelectField
+                    placeholder={
+                      i === 0
+                        ? "2ᵉ agence — départements (optionnel)"
+                        : `Agence supplémentaire — départements (optionnel)`
+                    }
+                    options={DEPARTMENTS}
+                    values={values}
+                    onChange={(v) => updateAgenceSecondaire(i, v)}
+                  />
+                </div>
+                {canRemove && (
+                  <button
+                    type="button"
+                    onClick={() => removeAgenceSecondaire(i)}
+                    aria-label="Supprimer cette agence"
+                    className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-white/5 text-lg text-slate-400 transition hover:border-red-400/60 hover:text-red-400"
+                  >
+                    ×
+                  </button>
+                )}
+                {isLast && (
+                  <button
+                    type="button"
+                    onClick={addAgenceSecondaire}
+                    aria-label="Ajouter une agence"
+                    className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-white/5 text-lg font-bold text-[#50DFAE] transition hover:border-[#50DFAE]/60"
+                  >
+                    +
+                  </button>
+                )}
+              </div>
+            );
+          })}
+        </div>
 
         <div className="mt-2 flex items-center gap-2.5">
           <StepBadge n={3} />

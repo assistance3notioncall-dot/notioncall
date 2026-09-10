@@ -1,39 +1,16 @@
-"use client";
-
-import { useEffect, useRef } from "react";
+import Script from "next/script";
 
 export default function VideoPlayer() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (!window.matchMedia("(pointer: coarse)").matches) return;
-
-    const onFullscreenChange = () => {
-      const isFs = document.fullscreenElement === videoRef.current;
-      const orientation = screen.orientation as ScreenOrientation & {
-        lock?: (o: string) => Promise<void>;
-      };
-      if (isFs) orientation.lock?.("landscape").catch(() => {});
-      else orientation.unlock?.();
-    };
-
-    document.addEventListener("fullscreenchange", onFullscreenChange);
-    return () =>
-      document.removeEventListener("fullscreenchange", onFullscreenChange);
-  }, []);
-
   return (
-    <video
-      ref={videoRef}
-      src="/notioncallVideo.mp4"
-      poster="/notioncall-video-poster.jpg"
-      controls
-      controlsList="nodownload noremoteplayback"
-      disablePictureInPicture
-      playsInline
-      preload="metadata"
-      onContextMenu={(e) => e.preventDefault()}
-      className="mx-auto block h-auto w-full rounded-2xl border border-white/10 bg-[#0B1226] object-contain md:h-auto md:max-h-[80vh] md:w-auto md:max-w-full md:rounded-3xl"
-    />
+    <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-[#0B1226] md:rounded-3xl">
+      <iframe
+        src="https://player.vimeo.com/video/1225337407?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0&dnt=1"
+        title="on boarding for the site 2"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        className="absolute inset-0 h-full w-full"
+      />
+      <Script src="https://player.vimeo.com/api/player.js" strategy="lazyOnload" />
+    </div>
   );
 }
