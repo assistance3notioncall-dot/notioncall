@@ -123,10 +123,10 @@ export default function Page() {
             Écrivez-nous, nous répondons sous 24 heures ouvrées.
           </p>
           <Link
-            href="/contact"
+            href="/appel-decouverte"
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#50DFAE] px-7 py-3 text-sm font-bold text-[#0B1226] transition hover:-translate-y-0.5"
           >
-            Nous contacter <span>→</span>
+            Devenir client <span>→</span>
           </Link>
         </div>
       </section>

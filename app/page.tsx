@@ -77,10 +77,10 @@ export default function Page() {
               leads issus de nos campagnes Meta.
             </p>
             <Link
-              href="/notre-service"
+              href="/appel-decouverte"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#50DFAE] px-7 py-3 text-sm font-bold text-[#0B1226] transition hover:-translate-y-0.5"
             >
-              Voir comment ça marche <span>→</span>
+              Réserver un appel de découverte <span>→</span>
             </Link>
           </div>
         </div>
@@ -106,7 +106,7 @@ export default function Page() {
               </div>
             ))}
           </div>
-          <p className="mt-10 max-w-2xl text-slate-400">
+          <p className="mt-10 max-w-2xl text-slate-400 md:max-w-none md:whitespace-nowrap">
             Peu importe la méthode : on suit ce que la loi d&rsquo;août exige, et vous
             recevez des rendez-vous terrain à traiter. Comme avant. Sans le risque.
           </p>
@@ -130,7 +130,7 @@ export default function Page() {
               </div>
             ))}
           </div>
-          <p className="mt-10 max-w-2xl text-slate-400">
+          <p className="mt-10 max-w-2xl text-slate-400 md:max-w-none md:whitespace-nowrap">
             Le but est simple : que vous gagniez le plus d&rsquo;argent possible, et
             bien plus vite qu&rsquo;en porte-à-porte.
           </p>
@@ -195,12 +195,12 @@ export default function Page() {
               — Oussama Aouameur, fondateur de NotionCall
             </p>
           </div>
-          <a
-            href="mailto:aouameur@notioncall.com"
+          <Link
+            href="/appel-decouverte"
             className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#50DFAE] px-7 py-3 text-sm font-bold text-[#0B1226] transition hover:-translate-y-0.5"
           >
-            Écrire au fondateur <span>→</span>
-          </a>
+            Découvrir <span>→</span>
+          </Link>
         </div>
       </section>
       </main>

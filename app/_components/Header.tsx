@@ -93,7 +93,7 @@ export default function Header() {
       </nav>
 
       <Link
-        href="/contact"
+        href="/appel-decouverte"
         className="nc-header-btn"
         style={{
           display: "flex",
@@ -114,7 +114,7 @@ export default function Header() {
           transition: "transform 0.22s ease",
         }}
       >
-        <span className="nc-btn-label">Nous contacter</span> <span>→</span>
+        <span className="nc-btn-label">Devenir client</span> <span>→</span>
       </Link>
     </header>
     {/* Matches .nc-header's actual box height at each breakpoint (see
