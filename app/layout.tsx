@@ -39,6 +39,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="fr" className={`${jakarta.variable} h-full antialiased`}>
+      <head>
+        <link rel="preconnect" href="https://player.vimeo.com" />
+        <link rel="preconnect" href="https://i.vimeocdn.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://player.vimeo.com" />
+      </head>
       <body className="h-full">
         <CursorGlow />
         {children}

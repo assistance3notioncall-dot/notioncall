@@ -106,7 +106,7 @@ export default function Page() {
               </div>
             ))}
           </div>
-          <p className="mt-10 max-w-2xl text-slate-400 md:max-w-none md:whitespace-nowrap">
+          <p className="mt-10 max-w-2xl text-slate-400 xl:max-w-none xl:whitespace-nowrap">
             Peu importe la méthode : on suit ce que la loi d&rsquo;août exige, et vous
             recevez des rendez-vous terrain à traiter. Comme avant. Sans le risque.
           </p>
@@ -130,7 +130,7 @@ export default function Page() {
               </div>
             ))}
           </div>
-          <p className="mt-10 max-w-2xl text-slate-400 md:max-w-none md:whitespace-nowrap">
+          <p className="mt-10 max-w-2xl text-slate-400 xl:max-w-none xl:whitespace-nowrap">
             Le but est simple : que vous gagniez le plus d&rsquo;argent possible, et
             bien plus vite qu&rsquo;en porte-à-porte.
           </p>

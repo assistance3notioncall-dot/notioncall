@@ -77,7 +77,7 @@ export default function Page() {
         <div className="mx-auto max-w-6xl space-y-8">
           {SERVICES.map((s) => (
             <div key={s.n} className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 md:p-10">
-              <div className="grid gap-8 md:grid-cols-[1fr_1.2fr] md:items-start">
+              <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start">
                 <div>
                   <div className="flex items-center gap-3">
                     <IconBadge>{s.icon}</IconBadge>
