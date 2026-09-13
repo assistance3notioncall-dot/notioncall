@@ -8,6 +8,7 @@ export default function VideoPlayer() {
         title="on boarding for the site 2"
         allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
+        loading="lazy"
         className="absolute inset-0 h-full w-full"
       />
       <Script src="https://player.vimeo.com/api/player.js" strategy="lazyOnload" />
