@@ -139,18 +139,12 @@ export default function Page() {
             Chaque RDV passe par un contrôle qualité et repose sur un consentement
             documenté, conforme à la loi du 11 août 2026.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 flex justify-center">
             <a
               href="#form"
               className="inline-flex items-center gap-2 rounded-full bg-[#50DFAE] px-7 py-3 text-sm font-bold text-[#0B1226] transition hover:-translate-y-0.5"
             >
               Réserver mon appel de 15 min <span>→</span>
-            </a>
-            <a
-              href="#mecanisme"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-3 text-sm font-bold text-[#EAF0FF] transition hover:-translate-y-0.5 hover:border-white/30"
-            >
-              Voir comment ça marche
             </a>
           </div>
         </div>
@@ -173,28 +167,6 @@ export default function Page() {
             </div>
           ))}
         </div>
-      </section>
-
-      {/* VIDEO */}
-      <section id="video" className="scroll-mt-24 px-6 py-16 md:scroll-mt-28 md:px-16">
-        <div className="mx-auto max-w-4xl text-center">
-          <Eyebrow className="justify-center">REGARDEZ D&rsquo;ABORD</Eyebrow>
-          <Reveal>
-            <h2 className="mx-auto mt-3 max-w-2xl text-2xl font-extrabold text-[#EAF0FF] md:text-3xl">
-              3 minutes pour comprendre ce que nous faisons, et comment !
-            </h2>
-          </Reveal>
-        </div>
-
-        <div className="mx-auto mt-10 max-w-4xl">
-          <VideoPlayer />
-        </div>
-        <p className="mt-6 text-center text-sm text-slate-400">
-          Prêt(e) ?{" "}
-          <a href="#form" className="font-semibold text-[#8ff4d3] hover:underline">
-            Répondez à 4 questions pour réserver votre créneau ↓
-          </a>
-        </p>
       </section>
 
       {/* MECANISME */}
@@ -420,7 +392,21 @@ export default function Page() {
       </section>
 
       {/* FORM */}
-      <section id="form" className="scroll-mt-24 px-6 pb-20 pt-4 md:scroll-mt-28 md:px-16">
+      <section id="form" className="scroll-mt-24 px-6 pb-20 pt-10 md:scroll-mt-28 md:px-16">
+        {/* Rappel vidéo : le CTA du hero amène directement ici, le visiteur ne
+            passe donc pas forcément par la section « Regardez d'abord ». */}
+        <div className="mx-auto mb-14 max-w-3xl">
+          <div className="text-center">
+            <Eyebrow className="justify-center">EN 3 MINUTES</Eyebrow>
+            <h2 className="mx-auto mt-3 max-w-xl text-xl font-extrabold text-[#EAF0FF] md:text-2xl">
+              Découvrez comment nous travaillons avant de réserver
+            </h2>
+          </div>
+          <div className="mt-7">
+            <VideoPlayer />
+          </div>
+        </div>
+
         <div className="mx-auto max-w-2xl">
           <p className="text-xs font-bold tracking-widest text-[#50DFAE]">DEVENIR CLIENT</p>
           <Reveal>
