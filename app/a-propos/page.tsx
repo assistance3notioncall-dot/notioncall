@@ -39,8 +39,8 @@ const VALUES = [
 ];
 
 const STATS = [
-  { icon: <IconUsers />, value: "+40", label: "Collaborateurs à Marrakech" },
-  { icon: <IconCalendarCheck />, value: "+60", label: "Rendez-vous livrés par jour" },
+  { icon: <IconUsers />, value: "+50", label: "Collaborateurs à Marrakech" },
+  { icon: <IconCalendarCheck />, value: "+120", label: "Rendez-vous livrés par jour" },
   { icon: <IconHeadphones />, value: "60%", label: "Taux de contrôle" },
   { icon: <IconClock />, value: "1h", label: "Entre la prise et le contrôle" },
 ];

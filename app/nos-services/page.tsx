@@ -49,8 +49,8 @@ const SERVICES = [
 ];
 
 export const metadata: Metadata = {
-  title: "Notre service",
-  alternates: { canonical: "/notre-service" },
+  title: "Nos services",
+  alternates: { canonical: "/nos-services" },
 };
 
 export default function Page() {
@@ -61,7 +61,7 @@ export default function Page() {
       <main>
       <section className="px-6 py-24 text-center md:px-16 md:py-28">
         <div className="mx-auto max-w-3xl">
-          <p className="text-sm font-bold tracking-widest text-[#50DFAE]">NOTRE SERVICE</p>
+          <p className="text-sm font-bold tracking-widest text-[#50DFAE]">NOS SERVICES</p>
           <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-[#9DBBFF] md:text-5xl">
             Trois façons de <span className="text-[#50DFAE]">remplir l&rsquo;agenda</span> de vos
             commerciaux

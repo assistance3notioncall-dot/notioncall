@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../_components/Header";
 import Footer from "../_components/Footer";
-import { IconMapPin, IconPhoneIncoming, IconFileText } from "../_components/icons";
+import { IconMapPin, IconWhatsApp, IconFileText, IconLinkedIn } from "../_components/icons";
 
 const INFO = [
   {
@@ -11,16 +11,24 @@ const INFO = [
     lines: ["Rue Tarik Bno Ziad", "Guéliz, Marrakech — Maroc"],
   },
   {
-    icon: <IconPhoneIncoming />,
-    label: "TÉLÉPHONE",
+    icon: <IconWhatsApp />,
+    label: "WHATSAPP",
     lines: ["+212 707 290 640", "Lun — Sam, 9h00 à 19h00"],
-    href: "tel:+212707290640",
+    href: "https://wa.me/212707290640",
+    external: true,
   },
   {
     icon: <IconFileText />,
     label: "EMAIL",
     lines: ["aouameur@notioncall.com", "Réponse sous 24 heures ouvrées"],
     href: "mailto:aouameur@notioncall.com",
+  },
+  {
+    icon: <IconLinkedIn />,
+    label: "LINKEDIN",
+    lines: ["Oussama Aouameur", "Fondateur de NotionCall"],
+    href: "https://www.linkedin.com/in/aouameuroussama/",
+    external: true,
   },
 ];
 
@@ -66,6 +74,8 @@ export default function Page() {
                     <a
                       key={line}
                       href={i.href}
+                      target={i.external ? "_blank" : undefined}
+                      rel={i.external ? "noopener" : undefined}
                       className="mt-1 block text-slate-200 transition hover:text-[#50DFAE]"
                     >
                       {line}

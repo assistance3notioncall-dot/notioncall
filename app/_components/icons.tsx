@@ -94,3 +94,30 @@ export function IconClock({ className = base }: IconProps) {
     </svg>
   );
 }
+
+export function IconWhatsApp({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+      <path
+        d="M3.5 20.5l1.3-4.2A8.2 8.2 0 1 1 7.9 19.2l-4.4 1.3Z"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.1 8c.2-.5.4-.5.7-.5h.6c.2 0 .4 0 .6.5l.7 1.6c.1.3 0 .5-.1.7l-.4.5c-.2.2-.3.4-.1.7a6 6 0 0 0 2.8 2.4c.3.1.5 0 .7-.2l.5-.6c.2-.2.4-.2.6-.1l1.5.8c.3.2.3.4.3.6 0 .9-.8 1.6-1.7 1.7-.5 0-1 .2-3.2-.8a8.7 8.7 0 0 1-3.8-4c-.6-1.3-.4-2.3.2-3.1Z"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function IconLinkedIn({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+      <rect x="3" y="3" width="18" height="18" rx="3" />
+      <path d="M7.3 10.5V17" strokeLinecap="round" />
+      <circle cx="7.3" cy="7.4" r="1.05" fill="currentColor" stroke="none" />
+      <path d="M11.2 17v-3.6a2.5 2.5 0 0 1 5 0V17" strokeLinecap="round" />
+      <path d="M11.2 17v-6.5" strokeLinecap="round" />
+    </svg>
+  );
+}

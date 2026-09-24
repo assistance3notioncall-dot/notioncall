@@ -62,7 +62,7 @@ const QUALIFIER = {
     items: [
       "Vous cherchez juste le prix le plus bas",
       "Vous n’avez pas de vendeurs terrain qui savent en profiter",
-      "Votre budget est de 5 000 à 6 000 €/mois",
+      "Votre budget est de moins de 5 000 €/mois",
     ],
   },
 };
@@ -132,7 +132,7 @@ export default function Page() {
           <Eyebrow className="justify-center">APPEL DÉCOUVERTE · 15 MIN AVEC LE FONDATEUR</Eyebrow>
           <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-[#EAF0FF] md:text-5xl">
             <span className="text-[#50DFAE]">Vérifié.</span>{" "}
-            <span className="text-[#f2b463]">Consenti.</span> Vous continuez à vendre —
+            <span className="text-[#50DFAE]">Consenti.</span> Vous continuez à vendre —
             bien protégé.
           </h1>
           <p className="mt-6 text-slate-400">
@@ -232,14 +232,14 @@ export default function Page() {
 
       {/* CONFORMITE / RISQUE */}
       <section id="conformite" className="scroll-mt-24 px-6 py-16 md:scroll-mt-28 md:px-16">
-        <div className="mx-auto max-w-3xl rounded-3xl border border-[#f2b463]/35 bg-white/[0.03] p-8 text-center md:p-10">
-          <p className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#f2b463]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#f2b463] shadow-[0_0_10px_1px_rgba(242,180,99,0.7)]" />
+        <div className="mx-auto max-w-3xl rounded-3xl border border-[#50DFAE]/35 bg-white/[0.03] p-8 text-center md:p-10">
+          <p className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#FFFFFF]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#FFFFFF] shadow-[0_0_10px_1px_rgba(255,255,255,0.7)]" />
             DEPUIS LE 11 AOÛT 2026
           </p>
           <p className="mx-auto mt-4 max-w-xl text-xl font-bold text-[#EAF0FF] md:text-2xl">
             Un rendez-vous non consenti peut coûter jusqu&rsquo;à{" "}
-            <span className="text-[#f2b463]">375 000 €</span> à votre entreprise.
+            <span className="text-[#50DFAE]">375 000 €</span> à votre entreprise.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-2.5">
             {["Consentement documenté", "Conservé 3 ans", "Révocable à tout moment"].map(

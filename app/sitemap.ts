@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: number;
   }> = [
     { path: "", changeFrequency: "monthly", priority: 1 },
-    { path: "/notre-service", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/nos-services", changeFrequency: "monthly", priority: 0.8 },
     { path: "/appel-decouverte", changeFrequency: "monthly", priority: 0.8 },
     { path: "/a-propos", changeFrequency: "monthly", priority: 0.6 },
     { path: "/contact", changeFrequency: "monthly", priority: 0.6 },

@@ -4,7 +4,7 @@ import Link from "next/link";
 const NAV_LINKS = [
   { href: "/", label: "Accueil" },
   { href: "/a-propos", label: "À propos" },
-  { href: "/notre-service", label: "Notre service" },
+  { href: "/nos-services", label: "Nos services" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -27,7 +27,7 @@ const SOCIALS = [
     ),
   },
   {
-    href: "https://www.linkedin.com/company/notioncall/posts/?feedView=all",
+    href: "https://www.linkedin.com/in/aouameuroussama/",
     title: "LinkedIn",
     icon: (
       <svg width="17" height="17" viewBox="0 0 24 24" fill="#EAF0FF">
@@ -71,7 +71,7 @@ export default function Footer() {
       }}
     >
       <Image
-        src="/images/index-5551957b.png"
+        src="/images/index-5551957b.webp"
         alt=""
         fill
         style={{ objectFit: "cover", objectPosition: "center", zIndex: 0 }}
@@ -132,11 +132,11 @@ export default function Footer() {
 
         <div>
           <div style={{ fontSize: 13, fontWeight: 700, color: "#FFFFFF", marginBottom: 16 }}>
-            Notre service
+            Nos services
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {SERVICE_LINKS.map((label) => (
-              <Link key={label} href="/notre-service" style={{ fontSize: 13.5, color: "rgb(200, 208, 230)" }}>
+              <Link key={label} href="/nos-services" style={{ fontSize: 13.5, color: "rgb(200, 208, 230)" }}>
                 {label}
               </Link>
             ))}
@@ -149,8 +149,13 @@ export default function Footer() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10, fontSize: 13.5, color: "rgb(200, 208, 230)" }}>
             <div>
-              Téléphone :{" "}
-              <a href="tel:+212707290640" style={{ color: "inherit" }}>
+              WhatsApp :{" "}
+              <a
+                href="https://wa.me/212707290640"
+                target="_blank"
+                rel="noopener"
+                style={{ color: "inherit" }}
+              >
                 +212 707 290 640
               </a>
             </div>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
+import ComplianceNotice from "./_components/ComplianceNotice";
 import IconBadge from "./_components/IconBadge";
 import Reveal from "./_components/Reveal";
 import {
@@ -43,8 +44,8 @@ const WHY = [
 const STATS = [
   { icon: <IconShieldCheck className="h-5 w-5" />, value: "60%", label: "Taux de contrôle" },
   { icon: <IconClock className="h-5 w-5" />, value: "1h", label: "Entre la prise et le contrôle" },
-  { icon: <IconUsers className="h-5 w-5" />, value: "+40", label: "Collaborateurs à Marrakech" },
-  { icon: <IconCalendarCheck className="h-5 w-5" />, value: "+60", label: "Rendez-vous livrés par jour" },
+  { icon: <IconUsers className="h-5 w-5" />, value: "+50", label: "Collaborateurs à Marrakech" },
+  { icon: <IconCalendarCheck className="h-5 w-5" />, value: "+120", label: "Rendez-vous livrés par jour" },
 ];
 
 export const metadata: Metadata = {
@@ -84,6 +85,10 @@ export default function Page() {
             </Link>
           </div>
         </div>
+      </section>
+
+      <section className="px-6 pt-16 md:px-16">
+        <ComplianceNotice />
       </section>
 
       <section className="px-6 py-20 md:px-16">
@@ -140,7 +145,7 @@ export default function Page() {
       <section className="px-6 md:px-16">
         <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl border border-white/10">
           <Image
-            src="/images/index-3d63666b.png"
+            src="/images/index-3d63666b.webp"
             alt=""
             fill
             className="object-cover"
@@ -195,12 +200,14 @@ export default function Page() {
               — Oussama Aouameur, fondateur de NotionCall
             </p>
           </div>
-          <Link
-            href="/appel-decouverte"
+          <a
+            href="https://wa.me/212707290640"
+            target="_blank"
+            rel="noopener"
             className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#50DFAE] px-7 py-3 text-sm font-bold text-[#0B1226] transition hover:-translate-y-0.5"
           >
             Découvrir <span>→</span>
-          </Link>
+          </a>
         </div>
       </section>
       </main>

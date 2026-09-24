@@ -1,5 +1,3 @@
-import Script from "next/script";
-
 export default function VideoPlayer() {
   return (
     <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-[#0B1226] md:rounded-3xl">
@@ -11,7 +9,6 @@ export default function VideoPlayer() {
         loading="lazy"
         className="absolute inset-0 h-full w-full"
       />
-      <Script src="https://player.vimeo.com/api/player.js" strategy="lazyOnload" />
     </div>
   );
 }

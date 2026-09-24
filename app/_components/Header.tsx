@@ -9,7 +9,7 @@ import { createPortal } from "react-dom";
 const NAV_LINKS = [
   { href: "/", label: "Accueil" },
   { href: "/a-propos", label: "À propos" },
-  { href: "/notre-service", label: "Notre service" },
+  { href: "/nos-services", label: "Nos services" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -93,7 +93,7 @@ export default function Header() {
       </nav>
 
       <Link
-        href="/appel-decouverte"
+        href="/contact"
         className="nc-header-btn"
         style={{
           display: "flex",
@@ -114,7 +114,7 @@ export default function Header() {
           transition: "transform 0.22s ease",
         }}
       >
-        <span className="nc-btn-label">Devenir client</span> <span>→</span>
+        <span className="nc-btn-label">Contactez-nous</span> <span>→</span>
       </Link>
     </header>
     {/* Matches .nc-header's actual box height at each breakpoint (see
