@@ -4,48 +4,39 @@ import Link from "next/link";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 import ComplianceNotice from "./_components/ComplianceNotice";
-import IconBadge from "./_components/IconBadge";
 import Reveal from "./_components/Reveal";
-import {
-  IconClipboardCheck,
-  IconPhoneIncoming,
-  IconInfinity,
-  IconShieldCheck,
-  IconCalendarCheck,
-  IconUsers,
-  IconClock,
-} from "./_components/icons";
+import { CalendarCheck, ClipboardCheck, Clock, Infinity as InfinityIcon, PhoneIncoming, ShieldCheck, Users } from "lucide-react";
 
 const PATHS = [
   {
-    icon: <IconClipboardCheck />,
+    icon: <ClipboardCheck size={20} strokeWidth={1.8} />,
     title: "Rendez-vous confirmés en deux étapes",
     text: "Prise du rendez-vous, puis second appel de confirmation : adresse, nom du commercial, distances, critères repris un à un. Ce qui ne passe pas le contrôle ne part pas.",
   },
   {
-    icon: <IconPhoneIncoming />,
+    icon: <PhoneIncoming size={20} strokeWidth={1.8} />,
     title: "Rendez-vous consentis",
     text: "Des propriétaires qui ont eux-mêmes demandé à être appelés. Le rendez-vous part avec les éléments et la preuve du consentement, conformément à la loi.",
   },
   {
-    icon: <IconInfinity />,
+    icon: <InfinityIcon size={20} strokeWidth={1.8} />,
     title: "Leads Meta, Google et SEO",
     text: "Facebook Ads, Google Ads, référencement naturel. Numéro vérifié par SMS, appel dans la foulée, rendez-vous terrain posé.",
   },
 ];
 
 const WHY = [
-  { icon: <IconShieldCheck />, title: "Consentis, sans risque", text: "Des rendez-vous terrain consentis, avec la preuve. Aucun risque pour votre entreprise." },
-  { icon: <IconCalendarCheck />, title: "Depuis mars 2026", text: "On vend des rendez-vous consentis depuis mars. Avant la loi, pas à cause d'elle." },
-  { icon: <IconUsers />, title: "Stabilité", text: "Un des centres d'appels les plus stables de Marrakech. Trois ans, une même équipe." },
-  { icon: <IconClipboardCheck />, title: "Exigence", text: "Vos critères, écrits, appliqués à la lettre. Ce qui ne passe pas le contrôle ne part pas." },
+  { icon: <ShieldCheck size={20} strokeWidth={1.8} />, title: "Consentis, sans risque", text: "Des rendez-vous terrain consentis, avec la preuve. Aucun risque pour votre entreprise." },
+  { icon: <CalendarCheck size={20} strokeWidth={1.8} />, title: "Depuis mars 2026", text: "On vend des rendez-vous consentis depuis mars. Avant la loi, pas à cause d'elle." },
+  { icon: <Users size={20} strokeWidth={1.8} />, title: "Stabilité", text: "Un des centres d'appels les plus stables de Marrakech. Trois ans, une même équipe." },
+  { icon: <ClipboardCheck size={20} strokeWidth={1.8} />, title: "Exigence", text: "Vos critères, écrits, appliqués à la lettre. Ce qui ne passe pas le contrôle ne part pas." },
 ];
 
 const STATS = [
-  { icon: <IconShieldCheck className="h-5 w-5" />, value: "60%", label: "Taux de contrôle" },
-  { icon: <IconClock className="h-5 w-5" />, value: "1h", label: "Entre la prise et le contrôle" },
-  { icon: <IconUsers className="h-5 w-5" />, value: "+50", label: "Collaborateurs à Marrakech" },
-  { icon: <IconCalendarCheck className="h-5 w-5" />, value: "+120", label: "Rendez-vous livrés par jour" },
+  { icon: <ShieldCheck size={20} strokeWidth={1.8} />, value: "60%", label: "Taux de contrôle" },
+  { icon: <Clock size={20} strokeWidth={1.8} />, value: "1h", label: "Entre la prise et le contrôle" },
+  { icon: <Users size={20} strokeWidth={1.8} />, value: "+50", label: "Collaborateurs à Marrakech" },
+  { icon: <CalendarCheck size={20} strokeWidth={1.8} />, value: "+120", label: "Rendez-vous livrés par jour" },
 ];
 
 export const metadata: Metadata = {
@@ -105,7 +96,9 @@ export default function Page() {
                 key={p.title}
                 className="cursor-pointer rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/30"
               >
-                <IconBadge>{p.icon}</IconBadge>
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-[#50DFAE]">
+                  {p.icon}
+                </div>
                 <h3 className="mt-5 text-lg font-bold text-[#EAF0FF]">{p.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-400">{p.text}</p>
               </div>
@@ -129,7 +122,9 @@ export default function Page() {
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {WHY.map((w) => (
               <div key={w.title} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                <IconBadge>{w.icon}</IconBadge>
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-[#50DFAE]">
+                  {w.icon}
+                </div>
                 <h3 className="mt-5 text-base font-bold text-[#EAF0FF]">{w.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-400">{w.text}</p>
               </div>
@@ -177,7 +172,9 @@ export default function Page() {
         <div className="nc-marquee-track flex w-max gap-16">
           {[...STATS, ...STATS].map((s, i) => (
             <div key={i} className="flex items-center gap-3 whitespace-nowrap">
-              <IconBadge>{s.icon}</IconBadge>
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-[#50DFAE]">
+                {s.icon}
+              </div>
               <div>
                 <div className="text-2xl font-extrabold text-[#EAF0FF]">{s.value}</div>
                 <div className="text-xs text-slate-400">{s.label}</div>

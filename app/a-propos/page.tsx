@@ -2,47 +2,37 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../_components/Header";
 import Footer from "../_components/Footer";
-import IconBadge from "../_components/IconBadge";
 import Reveal from "../_components/Reveal";
-import {
-  IconShieldCheck,
-  IconClipboardCheck,
-  IconFileText,
-  IconMapPin,
-  IconUsers,
-  IconCalendarCheck,
-  IconHeadphones,
-  IconClock,
-} from "../_components/icons";
+import { CalendarCheck, ClipboardCheck, Clock, FileText, Headphones, MapPin, ShieldCheck, Users } from "lucide-react";
 
 const VALUES = [
   {
-    icon: <IconShieldCheck />,
+    icon: <ShieldCheck size={20} strokeWidth={1.8} />,
     title: "Le contrôle",
     text: "Un rendez-vous repasse au contrôle avant de partir. Ce qui ne passe pas ne vous est pas envoyé, et ne vous est pas facturé.",
   },
   {
-    icon: <IconClipboardCheck />,
+    icon: <ClipboardCheck size={20} strokeWidth={1.8} />,
     title: "Vos critères",
     text: "Zone, logement, statut du propriétaire, échéance : écrits avec vous, appliqués à la lettre. Hors critères, ce n'est pas un rendez-vous.",
   },
   {
-    icon: <IconFileText />,
+    icon: <FileText size={20} strokeWidth={1.8} />,
     title: "La trace",
     text: "Chaque rendez-vous arrive avec ce qui l'a produit. Vous n'avez pas à nous croire sur parole.",
   },
   {
-    icon: <IconMapPin />,
+    icon: <MapPin size={20} strokeWidth={1.8} />,
     title: "Le terrain décide",
     text: "Scripts, ciblage et argumentaires corrigés à partir des retours de vos commerciaux, pas des nôtres.",
   },
 ];
 
 const STATS = [
-  { icon: <IconUsers />, value: "+50", label: "Collaborateurs à Marrakech" },
-  { icon: <IconCalendarCheck />, value: "+120", label: "Rendez-vous livrés par jour" },
-  { icon: <IconHeadphones />, value: "60%", label: "Taux de contrôle" },
-  { icon: <IconClock />, value: "1h", label: "Entre la prise et le contrôle" },
+  { icon: <Users size={20} strokeWidth={1.8} />, value: "+50", label: "Collaborateurs à Marrakech" },
+  { icon: <CalendarCheck size={20} strokeWidth={1.8} />, value: "+120", label: "Rendez-vous livrés par jour" },
+  { icon: <Headphones size={20} strokeWidth={1.8} />, value: "60%", label: "Taux de contrôle" },
+  { icon: <Clock size={20} strokeWidth={1.8} />, value: "1h", label: "Entre la prise et le contrôle" },
 ];
 
 export const metadata: Metadata = {
@@ -84,7 +74,15 @@ export default function Page() {
             Avant la loi d&rsquo;août, pas à cause d&rsquo;elle.
           </p>
           <p className="text-sm text-slate-400">
-            — Oussama Aouameur, fondateur de NotionCall
+            — Oussama Aouameur,{" "}
+            <a
+              href="https://www.linkedin.com/company/notioncall/"
+              target="_blank"
+              rel="noopener"
+              className="underline decoration-white/30 underline-offset-2 transition hover:text-[#50DFAE]"
+            >
+              NotionCall
+            </a>
           </p>
           <div className="pt-2">
             <Link
@@ -112,7 +110,9 @@ export default function Page() {
           <div className="mt-10 grid gap-6 text-left md:grid-cols-2 lg:grid-cols-4">
             {VALUES.map((v) => (
               <div key={v.title} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                <IconBadge>{v.icon}</IconBadge>
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-[#50DFAE]">
+                  {v.icon}
+                </div>
                 <h3 className="mt-5 text-base font-bold text-[#EAF0FF]">{v.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-400">{v.text}</p>
               </div>
@@ -121,7 +121,9 @@ export default function Page() {
           <div className="mt-6 grid grid-cols-2 gap-4 rounded-3xl border border-white/10 bg-white/[0.03] p-8 md:grid-cols-4">
             {STATS.map((s) => (
               <div key={s.label} className="flex flex-col items-center gap-3">
-                <IconBadge>{s.icon}</IconBadge>
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-[#50DFAE]">
+                  {s.icon}
+                </div>
                 <div className="text-2xl font-extrabold text-[#EAF0FF]">{s.value}</div>
                 <div className="text-xs text-slate-400">{s.label}</div>
               </div>

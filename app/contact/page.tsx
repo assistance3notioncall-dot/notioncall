@@ -2,32 +2,35 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../_components/Header";
 import Footer from "../_components/Footer";
-import { IconMapPin, IconWhatsApp, IconFileText, IconLinkedIn } from "../_components/icons";
+import { FileText, MapPin } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
+import { FaLinkedinIn } from "react-icons/fa6";
 
 const INFO = [
   {
-    icon: <IconMapPin />,
+    icon: <MapPin size={20} strokeWidth={1.8} />,
     label: "ADRESSE",
     lines: ["Rue Tarik Bno Ziad", "Guéliz, Marrakech — Maroc"],
   },
   {
-    icon: <IconWhatsApp />,
+    icon: <SiWhatsapp size={20} />,
     label: "WHATSAPP",
     lines: ["+212 707 290 640", "Lun — Sam, 9h00 à 19h00"],
     href: "https://wa.me/212707290640",
     external: true,
   },
   {
-    icon: <IconFileText />,
+    icon: <FileText size={20} strokeWidth={1.8} />,
     label: "EMAIL",
-    lines: ["aouameur@notioncall.com", "Réponse sous 24 heures ouvrées"],
-    href: "mailto:aouameur@notioncall.com",
+    lines: ["info-rdv@notioncall.com", "Réponse sous 24 heures ouvrées"],
+    href: "mailto:info-rdv@notioncall.com",
   },
   {
-    icon: <IconLinkedIn />,
+    icon: <FaLinkedinIn size={20} />,
     label: "LINKEDIN",
-    lines: ["Oussama Aouameur", "Fondateur de NotionCall"],
+    lines: ["Oussama Aouameur", "NotionCall"],
     href: "https://www.linkedin.com/in/aouameuroussama/",
+    secondaryHref: "https://www.linkedin.com/company/notioncall/",
     external: true,
   },
 ];
@@ -69,11 +72,13 @@ export default function Page() {
               </div>
               <div>
                 <p className="text-xs font-bold tracking-widest text-[#50DFAE]">{i.label}</p>
-                {i.lines.map((line, idx) =>
-                  idx === 0 && i.href ? (
+                {i.lines.map((line, idx) => {
+                  const lineHref =
+                    idx === 0 ? i.href : idx === 1 ? i.secondaryHref : undefined;
+                  return lineHref ? (
                     <a
                       key={line}
-                      href={i.href}
+                      href={lineHref}
                       target={i.external ? "_blank" : undefined}
                       rel={i.external ? "noopener" : undefined}
                       className="mt-1 block text-slate-200 transition hover:text-[#50DFAE]"
@@ -84,8 +89,8 @@ export default function Page() {
                     <p key={line} className="mt-1 text-slate-200">
                       {line}
                     </p>
-                  )
-                )}
+                  );
+                })}
               </div>
             </div>
           ))}

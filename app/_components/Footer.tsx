@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SiInstagram, SiFacebook, SiYoutube } from "react-icons/si";
+import { FaLinkedinIn } from "react-icons/fa6";
 
 const NAV_LINKS = [
   { href: "/", label: "Accueil" },
@@ -18,44 +20,22 @@ const SOCIALS = [
   {
     href: "https://www.instagram.com/notioncall/",
     title: "Instagram",
-    icon: (
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
-        <rect x="3" y="3" width="18" height="18" rx="5" stroke="#EAF0FF" strokeWidth="1.8" />
-        <circle cx="12" cy="12" r="4.2" stroke="#EAF0FF" strokeWidth="1.8" />
-        <circle cx="17.2" cy="6.8" r="1.3" fill="#EAF0FF" />
-      </svg>
-    ),
+    icon: <SiInstagram size={17} />,
   },
   {
-    href: "https://www.linkedin.com/in/aouameuroussama/",
+    href: "https://www.linkedin.com/company/notioncall/",
     title: "LinkedIn",
-    icon: (
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="#EAF0FF">
-        <path
-          d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-7.9c0-1.88-.03-4.3-2.62-4.3-2.62 0-3.02 2.05-3.02 4.16V23H8V8z"
-          transform="translate(2 -1) scale(0.85)"
-        />
-      </svg>
-    ),
+    icon: <FaLinkedinIn size={17} />,
   },
   {
     href: "https://www.facebook.com/notioncall?locale=fr_FR",
     title: "Facebook",
-    icon: (
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="#EAF0FF">
-        <path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.87.24-1.46 1.49-1.46h1.6V4.45c-.28-.04-1.23-.12-2.34-.12-2.32 0-3.9 1.41-3.9 4v2.17H7.75v3h2.6V21h3.15z" />
-      </svg>
-    ),
+    icon: <SiFacebook size={17} />,
   },
   {
     href: "https://www.youtube.com/@NotionCallOfficial",
     title: "YouTube",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <rect x="2.5" y="6" width="19" height="13" rx="3.5" stroke="#EAF0FF" strokeWidth="1.8" />
-        <path d="M10.5 9.8l4.5 2.7-4.5 2.7V9.8z" fill="#EAF0FF" />
-      </svg>
-    ),
+    icon: <SiYoutube size={18} />,
   },
 ];
 
@@ -161,8 +141,8 @@ export default function Footer() {
             </div>
             <div>
               Email :{" "}
-              <a href="mailto:aouameur@notioncall.com" style={{ color: "inherit" }}>
-                aouameur@notioncall.com
+              <a href="mailto:info-rdv@notioncall.com" style={{ color: "inherit" }}>
+                info-rdv@notioncall.com
               </a>
             </div>
             <div>Rue Tarik Bno Ziad, Guéliz, Marrakech</div>
@@ -180,6 +160,7 @@ export default function Footer() {
                   width: 36,
                   height: 36,
                   borderRadius: 10,
+                  color: "#EAF0FF",
                   background: "rgba(255, 255, 255, 0.1)",
                   display: "flex",
                   alignItems: "center",

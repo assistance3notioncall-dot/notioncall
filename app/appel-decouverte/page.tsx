@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Header from "../_components/Header";
 import Footer from "../_components/Footer";
-import IconBadge from "../_components/IconBadge";
 import Reveal from "../_components/Reveal";
 import DiscoveryForm from "./DiscoveryForm";
 import VideoPlayer from "./VideoPlayer";
 import ProofSlot from "./ProofSlot";
-import { IconCalendarCheck, IconShieldCheck } from "../_components/icons";
+import { CalendarCheck, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Appel découverte",
@@ -15,14 +14,14 @@ export const metadata: Metadata = {
 
 const MECHANISM = [
   {
-    icon: <IconCalendarCheck />,
+    icon: <CalendarCheck size={20} strokeWidth={1.8} />,
     step: "1",
     label: "Prise de RDV",
     title: "Ciblage par département et type de travaux",
     text: "Consentement documenté à chaque étape. Le prospect sait qui va venir chez lui, et pourquoi.",
   },
   {
-    icon: <IconShieldCheck />,
+    icon: <ShieldCheck size={20} strokeWidth={1.8} />,
     step: "2",
     label: "Vérification, ~1h après",
     title: "Deuxième appel de contrôle",
@@ -193,7 +192,9 @@ export default function Page() {
                 className="rounded-2xl border border-white/10 bg-white/[0.03] p-7"
               >
                 <div className="flex items-center gap-3">
-                  <IconBadge>{m.icon}</IconBadge>
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-[#50DFAE]">
+                    {m.icon}
+                  </div>
                   <span className="text-xs font-bold tracking-widest text-[#50DFAE]">
                     {m.step} · {m.label}
                   </span>

@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../_components/Header";
 import Footer from "../_components/Footer";
-import IconBadge from "../_components/IconBadge";
 import Reveal from "../_components/Reveal";
-import { IconClipboardCheck, IconPhoneIncoming, IconInfinity } from "../_components/icons";
+import { ClipboardCheck, Infinity as InfinityIcon, PhoneIncoming } from "lucide-react";
 
 const SERVICES = [
   {
     n: "01",
-    icon: <IconClipboardCheck />,
+    icon: <ClipboardCheck size={20} strokeWidth={1.8} />,
     title: "Rendez-vous contrôlés",
     text: "Le produit historique de NotionCall. Nos équipes travaillent vos secteurs, posent le rendez-vous, puis le repassent au contrôle avant de vous l'envoyer.",
     highlight: "Votre commercial arrive chez quelqu'un qui l'attend",
@@ -22,7 +21,7 @@ const SERVICES = [
   },
   {
     n: "02",
-    icon: <IconPhoneIncoming />,
+    icon: <PhoneIncoming size={20} strokeWidth={1.8} />,
     title: "Rendez-vous consentis",
     text: "Le particulier a demandé lui-même à être rappelé, sur un objet précis. Nous rappelons vite, nous restons sur cet objet, et le rendez-vous vous arrive avec la trace de sa demande.",
     highlight: "Un rendez-vous qui répond à une vraie demande",
@@ -35,7 +34,7 @@ const SERVICES = [
   },
   {
     n: "03",
-    icon: <IconInfinity />,
+    icon: <InfinityIcon size={20} strokeWidth={1.8} />,
     title: "Leads Meta",
     text: "Nous montons et pilotons des campagnes Facebook sur vos secteurs. Le particulier laisse sa demande, nous le rappelons rapidement et posons le rendez-vous terrain.",
     highlight: "Vous recevez des rendez-vous, pas des fichiers",
@@ -80,7 +79,9 @@ export default function Page() {
               <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start">
                 <div>
                   <div className="flex items-center gap-3">
-                    <IconBadge>{s.icon}</IconBadge>
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-[#50DFAE]">
+                      {s.icon}
+                    </div>
                     <span className="text-sm font-bold text-slate-400">{s.n}</span>
                   </div>
                   <h2 className="mt-5 text-2xl font-extrabold text-[#EAF0FF]">{s.title}</h2>
